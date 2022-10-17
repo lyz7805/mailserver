@@ -13,7 +13,7 @@ sh -c ./build.sh
 ## Usage
 1. Pull the image
     ```sh
-    docker pull lyz7805/mailserver
+    docker pull 94love1/mailserver
     ```
 2. Create envionment file
     ```sh
@@ -32,7 +32,7 @@ sh -c ./build.sh
         -p 995:995 \
         -v /path/to/certs:/etc/ssl/mail \
         -v mailserver-mail:/var/mail \
-        lyz7805/mailserver
+        94love1/mailserver
     ```
 
 ## Reference

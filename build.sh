@@ -1,5 +1,5 @@
 #!/bin/sh
-TAG="lyz7805/mailserver"
+TAG="94love1/mailserver"
 
 echo "Build the docker img: ${TAG}"
 
