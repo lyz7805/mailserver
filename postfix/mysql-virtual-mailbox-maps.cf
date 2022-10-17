@@ -1,0 +1,5 @@
+user = {{DB_USER}}
+password = {{DB_PASSWORD}}
+hosts = {{DB_HOST}}
+dbname = {{DB_NAME}}
+query = SELECT concat(d.name,"/",substring_index(u.email,"@",1)) FROM virtual_users u left join virtual_domains d on u.domain_id=d.id where email='%s' LIMIT 1
