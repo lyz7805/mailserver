@@ -54,5 +54,8 @@ postconf -e "maillog_file = /dev/stdout"
 # specially for docker
 postconf -F '*/*/chroot = n'
 
+# Build the postfix necessary DBM or DB file
+newaliases
+
 chown -R vmail:dovecot /etc/dovecot
 chmod -R o-rwx /etc/dovecot
