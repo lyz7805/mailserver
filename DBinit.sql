@@ -1,6 +1,15 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
+-- Table structure for virtual_domains
+-- ----------------------------
+-- DROP TABLE IF EXISTS `virtual_domains`;
+CREATE TABLE IF NOT EXISTS `virtual_domains`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(50) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '邮箱域名';
+
+-- ----------------------------
 -- Table structure for virtual_aliases
 -- ----------------------------
 -- DROP TABLE IF EXISTS `virtual_aliases`;
@@ -11,16 +20,7 @@ CREATE TABLE IF NOT EXISTS `virtual_aliases`  (
   `destination` varchar(100) NOT NULL,
   INDEX `domain_id`(`domain_id`) USING BTREE,
   FOREIGN KEY (`domain_id`) REFERENCES `virtual_domains` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB DEFAULT CHARSET=utf8 COMMENT = '邮箱别名表';
-
--- ----------------------------
--- Table structure for virtual_domains
--- ----------------------------
--- DROP TABLE IF EXISTS `virtual_domains`;
-CREATE TABLE IF NOT EXISTS `virtual_domains`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `name` varchar(50) NOT NULL
-) ENGINE = InnoDB DEFAULT CHARSET=utf8 COMMENT = '邮箱域名';
+) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '邮箱别名表';
 
 -- ----------------------------
 -- Table structure for virtual_users
@@ -35,6 +35,6 @@ CREATE TABLE IF NOT EXISTS `virtual_users`  (
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
   UNIQUE INDEX `email`(`email`) USING BTREE,
   FOREIGN KEY (`domain_id`) REFERENCES `virtual_domains` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB DEFAULT CHARSET=utf8 COMMENT = '邮箱用户表';
+) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '邮箱用户表';
 
 SET FOREIGN_KEY_CHECKS = 1;
