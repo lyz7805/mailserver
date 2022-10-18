@@ -38,6 +38,7 @@ sh -c ./build.sh
 ## Reference
 * [Postfix + Dovecot + MySQL 搭建邮件服务器](https://my.oschina.net/barat/blog/4965904)
 * [Postfix SASL Howto](https://www.postfix.org/SASL_README.html)
+* [Postfix TLS Support](http://www.postfix.org/TLS_README.html)
 * [catatnight/docker-postfix](https://github.com/catatnight/docker-postfix)
 * [juanluisbaptiste/docker-postfix](https://github.com/juanluisbaptiste/docker-postfix)
 * [Codegyre/DockerPostfixDovecot](https://github.com/Codegyre/DockerPostfixDovecot)
