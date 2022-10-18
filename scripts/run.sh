@@ -55,6 +55,7 @@ if [ -n "${MESSAGE_SIZE_LIMIT}" ]; then
   postconf -e "mailbox_size_limit = ${MAILBOX_SIZE_LIMIT}"
 fi
 
+chown -R vmail:vmail /var/mail
 
 echo "Server run start..."
 echo "Host: ${SERVER_HOSTNAME}"
