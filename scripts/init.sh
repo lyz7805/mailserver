@@ -46,7 +46,7 @@ sed -i "s@ssl_key = <@#ssl_key = <@g" /etc/dovecot/conf.d/10-ssl.conf
 postconf -e "virtual_transport = dovecot"
 postconf -e "dovecot_destination_recipient_limit = 1"
 echo "dovecot   unix  -       n       n       -       -       pipe" >>/etc/postfix/master.cf
-echo "    flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -d \${recipient}" >>/etc/postfix/master.cf
+echo "    flags=DRhu user=vmail:vmail argv=/usr/libexec/dovecot/deliver -d \${recipient}" >>/etc/postfix/master.cf
 
 # Config log to stdout
 postconf -e "maillog_file = /dev/stdout"
