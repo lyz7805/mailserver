@@ -36,6 +36,7 @@ postconf -e "smtp_tls_session_cache_database = lmdb:\${data_directory}/smtp_scac
 sed -i "s@#smtps     inet  n       -       n       -       -       smtpd@smtps     inet  n       -       n       -       -       smtpd@g" /etc/postfix/master.cf
 sed -i "s@#  -o smtpd_tls_wrappermode=yes@  -o smtpd_tls_wrappermode=yes@g" /etc/postfix/master.cf
 
+sed -i "s@!include auth-passwdfile.conf.ext@#!include auth-passwdfile.conf.ext@g" /etc/dovecot/conf.d/10-auth.conf
 sed -i "s@ssl_cert = <@#ssl_cert = <@g" /etc/dovecot/conf.d/10-ssl.conf
 sed -i "s@ssl_key = <@#ssl_key = <@g" /etc/dovecot/conf.d/10-ssl.conf
 
