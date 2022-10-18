@@ -2,6 +2,7 @@ FROM alpine:latest
 LABEL org.opencontainers.image.authors="lyz7805@126.com"
 
 ENV SSL_DIR=/etc/ssl/mail
+ENV TZ=Asia/Shanghai
 
 ADD postfix /etc/postfix
 ADD dovecot /etc/dovecot
@@ -19,7 +20,7 @@ RUN set -ex && \
 RUN set -ex && \
     apk update && \
     apk add --no-cache \
-    bash ca-certificates openssl \
+    bash ca-certificates openssl tzdata \
     postfix postfix-mysql \
     dovecot dovecot-mysql dovecot-pop3d
 

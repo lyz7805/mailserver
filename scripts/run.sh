@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Set the timezone
+cp "/usr/share/zoneinfo/${TZ}" /etc/localtime && echo "${TZ}" > /etc/timezone
+
 [ -z "${SERVER_HOSTNAME}" ] && echo "SERVER_HOSTNAME is not set" && exit 1
 SSL_CRT=$(find "${SSL_DIR}" -iname '*.crt')
 SSL_KEY=$(find "${SSL_DIR}" -iname '*.key')
