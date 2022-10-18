@@ -25,7 +25,7 @@ postconf -e "smtpd_relay_restrictions =  permit_mynetworks, permit_sasl_authenti
 # Enable Postfix TLS
 postconf -e "smtpd_use_tls = yes"
 postconf -e "smtpd_tls_auth_only = yes"
-postconf -e "smtpd_tls_session_cache_database = btree:\${data_directory}/smtpd_scache"
+postconf -e "smtpd_tls_session_cache_database = lmdb:\${data_directory}/smtpd_scache"
 
 postconf -e "smtp_use_tls = yes"
 postconf -e "smtp_tls_security_level = encrypt"
