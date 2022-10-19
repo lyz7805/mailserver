@@ -38,6 +38,7 @@ sed -i "s/{{DB_PASSWORD}}/${DB_PASSWORD}/g" /etc/dovecot/dovecot-sql.conf
 
 postconf -e "myhostname = ${SERVER_HOSTNAME}"
 postconf -e "mydomain = ${DOMAIN}"
+postconf -e "relayhost = [${SERVER_HOSTNAME}]:465"
 
 postconf -e "always_add_missing_headers = ${ALWAYS_ADD_MISSING_HEADERS}"
 
