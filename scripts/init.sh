@@ -35,8 +35,8 @@ postconf -e "smtp_tls_wrappermode = yes"
 postconf -e "smtp_tls_loglevel = 1"
 postconf -e "smtp_tls_session_cache_database = lmdb:\${data_directory}/smtp_scache"
 
-sed -i "s@#smtps     inet  n       -       n       -       -       smtpd@smtps     inet  n       -       n       -       -       smtpd@g" /etc/postfix/master.cf
-sed -i "s@#  -o smtpd_tls_wrappermode=yes@  -o smtpd_tls_wrappermode=yes@g" /etc/postfix/master.cf
+postconf -Me "smtps/inet = smtps     inet  n       -       n       -       -       smtpd"
+postconf -Pe "smtps/inet/smtpd_tls_wrappermode = yes"
 
 sed -i "s@!include auth-passwdfile.conf.ext@#!include auth-passwdfile.conf.ext@g" /etc/dovecot/conf.d/10-auth.conf
 sed -i "s@ssl_cert = <@#ssl_cert = <@g" /etc/dovecot/conf.d/10-ssl.conf
@@ -45,8 +45,8 @@ sed -i "s@ssl_key = <@#ssl_key = <@g" /etc/dovecot/conf.d/10-ssl.conf
 # Transport to dovecot
 postconf -e "virtual_transport = dovecot"
 postconf -e "dovecot_destination_recipient_limit = 1"
-echo "dovecot   unix  -       n       n       -       -       pipe" >>/etc/postfix/master.cf
-echo "    flags=DRhu user=dovecot:dovecot argv=/usr/libexec/dovecot/deliver -d \${recipient}" >>/etc/postfix/master.cf
+postconf -Me "dovecot/unix = dovecot   unix  -       n       n       -       -       pipe"
+postconf -Fe "dovecot/unix/command = pipe flags=DRhu user=dovecot:dovecot argv=/usr/libexec/dovecot/deliver -d \${recipient}"
 
 # Config log to stdout
 postconf -e "maillog_file = /dev/stdout"
