@@ -51,9 +51,6 @@ postconf -Fe "dovecot/unix/command = pipe flags=DRhu user=dovecot:dovecot argv=/
 # Config log to stdout
 postconf -e "maillog_file = /dev/stdout"
 
-# specially for docker
-postconf -F '*/*/chroot = n'
-
 # Build the postfix necessary DBM or DB file
 newaliases
 
