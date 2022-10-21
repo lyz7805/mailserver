@@ -29,12 +29,6 @@ postconf -e "smtpd_tls_loglevel = 1"
 postconf -e "smtpd_tls_auth_only = yes"
 postconf -e "smtpd_tls_session_cache_database = lmdb:\${data_directory}/smtpd_scache"
 
-postconf -e "smtp_use_tls = yes"
-postconf -e "smtp_tls_security_level = encrypt"
-postconf -e "smtp_tls_wrappermode = yes"
-postconf -e "smtp_tls_loglevel = 1"
-postconf -e "smtp_tls_session_cache_database = lmdb:\${data_directory}/smtp_scache"
-
 postconf -Me "smtps/inet = smtps     inet  n       -       n       -       -       smtpd"
 postconf -Pe "smtps/inet/syslog_name = postfix/smtps"
 postconf -Pe "smtps/inet/smtpd_tls_wrappermode = yes"
