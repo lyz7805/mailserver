@@ -45,6 +45,8 @@ RUN set -ex && \
 
 # VOLUME [ "/var/mail" ]
 
+# SMTP port
+EXPOSE 25
 # SMTPS port
 EXPOSE 465
 # IMAPS port
