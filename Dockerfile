@@ -22,7 +22,7 @@ RUN set -ex && \
     apk add --no-cache \
     bash ca-certificates openssl tzdata \
     postfix postfix-mysql \
-    dovecot dovecot-mysql dovecot-pop3d
+    dovecot dovecot-mysql dovecot-pop3d dovecot-lmtpd
 
 # 增加用户及用户组，设置权限
 RUN set -ex && \
