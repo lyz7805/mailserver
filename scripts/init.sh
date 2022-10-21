@@ -36,7 +36,11 @@ postconf -e "smtp_tls_loglevel = 1"
 postconf -e "smtp_tls_session_cache_database = lmdb:\${data_directory}/smtp_scache"
 
 postconf -Me "smtps/inet = smtps     inet  n       -       n       -       -       smtpd"
+postconf -Pe "smtps/inet/syslog_name = postfix/smtps"
 postconf -Pe "smtps/inet/smtpd_tls_wrappermode = yes"
+postconf -Pe "smtps/inet/smtpd_sasl_auth_enable = yes"
+postconf -Pe "smtps/inet/smtpd_relay_restrictions = permit_sasl_authenticated,reject"
+postconf -Pe "smtps/inet/milter_macro_daemon_name = ORIGINATING"
 
 sed -i "s@!include auth-passwdfile.conf.ext@#!include auth-passwdfile.conf.ext@g" /etc/dovecot/conf.d/10-auth.conf
 sed -i "s@ssl_cert = <@#ssl_cert = <@g" /etc/dovecot/conf.d/10-ssl.conf
