@@ -27,6 +27,7 @@ sh -c ./build.sh
     docker run -d \
         --name mailserver \
         --env-file .env \
+        -p 25:25 \
         -p 465:465 \
         -p 993:993 \
         -p 995:995 \
