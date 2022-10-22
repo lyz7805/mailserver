@@ -37,6 +37,7 @@ sh -c ./build.sh
     ```
 
 ## Reference
+* [Linux邮件服务器搭建攻略(一文吃透Postfix+Dovecot+MySQL)](https://www.jianshu.com/p/ffe2182c12f3)
 * [Postfix + Dovecot + MySQL 搭建邮件服务器](https://my.oschina.net/barat/blog/4965904)
 * [Postfix SASL Howto](https://www.postfix.org/SASL_README.html)
 * [Postfix TLS Support](http://www.postfix.org/TLS_README.html)
