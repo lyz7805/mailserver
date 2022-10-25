@@ -6,6 +6,7 @@ ENV TZ=Asia/Shanghai
 
 ADD postfix /etc/postfix
 ADD dovecot /etc/dovecot
+ADD opendkim /etc/opendkim
 
 # 增加用户及用户组，设置权限
 RUN set -ex && \
@@ -22,13 +23,15 @@ RUN set -ex && \
     apk add --no-cache \
     bash ca-certificates openssl tzdata \
     postfix postfix-mysql \
-    dovecot dovecot-mysql dovecot-pop3d dovecot-lmtpd
+    dovecot dovecot-mysql dovecot-pop3d dovecot-lmtpd \
+    opendkim
 
 # 增加用户及用户组，设置权限
 RUN set -ex && \
     chgrp postfix /etc/postfix/mysql-*.cf && \
     chgrp vmail /etc/dovecot/dovecot.conf && \
-    chmod g+r /etc/dovecot/dovecot.conf
+    chmod g+r /etc/dovecot/dovecot.conf && \
+    addgroup postfix opendkim
 
 # 设置工作目录
 WORKDIR /app

@@ -1,3 +1,5 @@
 .env
 certs/*.crt
 certs/*.key
+key/*
+!key/README.md

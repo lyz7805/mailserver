@@ -12,6 +12,8 @@ fi
 
 mkdir -p "${SSL_DIR}"
 chmod -R 400 "${SSL_DIR}"
+mkdir -p /run/opendkim
+chown -R opendkim:opendkim /run/opendkim
 
 DOMAIN=$(echo "${SERVER_HOSTNAME}" | awk 'BEGIN{FS=OFS="."}{print $(NF-1),$NF}')
 ALWAYS_ADD_MISSING_HEADERS=${ALWAYS_ADD_MISSING_HEADERS:-no}
@@ -55,11 +57,17 @@ if [ -n "${MESSAGE_SIZE_LIMIT}" ]; then
   postconf -e "mailbox_size_limit = ${MAILBOX_SIZE_LIMIT}"
 fi
 
+sed -i "s@{{DOMAIN}}@${DOMAIN}@g" /etc/opendkim/opendkim.conf
+
+chown -R opendkim:opendkim /var/db/dkim
+chmod 0600 /var/db/dkim
 chown -R vmail:vmail /var/mail
 
 echo "Server run start..."
 echo "Host: ${SERVER_HOSTNAME}"
 
+# Run OpenDKIM
+opendkim
 # Run Dovecot
 dovecot
 # Run Postfix and Dovecot

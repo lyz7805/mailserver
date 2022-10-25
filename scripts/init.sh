@@ -46,6 +46,11 @@ postconf -e "virtual_transport = lmtp:unix:private/dovecot-lmtp"
 # Config log to stdout
 postconf -e "maillog_file = /dev/stdout"
 
+# Enable Postfix Milter
+postconf -e "smtpd_milters = unix:/run/opendkim/opendkim.sock"
+postconf -e "non_smtpd_milters = \$smtpd_milters"
+postconf -e "milter_default_action = accept"
+
 # Build the postfix necessary DBM or DB file
 newaliases
 
