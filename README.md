@@ -32,6 +32,7 @@ sh -c ./build.sh
         -p 993:993 \
         -p 995:995 \
         -v /path/to/certs:/etc/ssl/mail \
+        -v /path/to/key/mail.private:/var/db/dkim/mail.private \
         -v mailserver-mail:/var/mail \
         94love1/mailserver
     ```
@@ -41,6 +42,8 @@ sh -c ./build.sh
 * [Postfix + Dovecot + MySQL 搭建邮件服务器](https://my.oschina.net/barat/blog/4965904)
 * [Postfix SASL Howto](https://www.postfix.org/SASL_README.html)
 * [Postfix TLS Support](http://www.postfix.org/TLS_README.html)
+* [Postfix before-queue Milter support](https://www.postfix.org/MILTER_README.html)
+* [OpenDKIM README](http://www.opendkim.org/opendkim-README)
 * [catatnight/docker-postfix](https://github.com/catatnight/docker-postfix)
 * [juanluisbaptiste/docker-postfix](https://github.com/juanluisbaptiste/docker-postfix)
 * [Codegyre/DockerPostfixDovecot](https://github.com/Codegyre/DockerPostfixDovecot)
