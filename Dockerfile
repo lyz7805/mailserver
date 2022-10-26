@@ -36,7 +36,7 @@ RUN set -ex && \
 # 设置工作目录
 WORKDIR /app
 
-COPY scripts/* /app
+COPY scripts/* /app/
 
 # 初始化部分配置
 RUN set -ex && \
