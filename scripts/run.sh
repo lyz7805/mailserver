@@ -60,7 +60,7 @@ fi
 sed -i "s@{{DOMAIN}}@${DOMAIN}@g" /etc/opendkim/opendkim.conf
 
 chown -R opendkim:opendkim /var/db/dkim
-chmod 0400 /var/db/dkim
+chmod 400 /var/db/dkim/mail.private
 chown -R vmail:vmail /var/mail
 
 echo "Server run start..."
