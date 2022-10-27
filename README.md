@@ -48,3 +48,4 @@ sh -c ./build.sh
 * [juanluisbaptiste/docker-postfix](https://github.com/juanluisbaptiste/docker-postfix)
 * [Codegyre/DockerPostfixDovecot](https://github.com/Codegyre/DockerPostfixDovecot)
 * [bokysan/docker-postfix](https://github.com/bokysan/docker-postfix)
+* [SPF Policy Daemon for Postfix (policyd-spf-fs) README](https://www.freestone.net/ftp/policyd-spf-fs/policyd-spf-fs_23/README)
