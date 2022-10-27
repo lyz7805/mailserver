@@ -24,7 +24,8 @@ RUN set -ex && \
     bash ca-certificates openssl tzdata \
     postfix postfix-mysql \
     dovecot dovecot-mysql dovecot-pop3d dovecot-lmtpd \
-    opendkim
+    opendkim \
+    policyd-spf-fs
 
 # 增加用户及用户组，设置权限
 RUN set -ex && \
