@@ -20,6 +20,7 @@ postconf -e "broken_sasl_auth_clients = yes"
 postconf -e "smtpd_sasl_security_options = noanonymous"
 postconf -e "smtpd_sasl_local_domain = \$myhostname"
 postconf -e "smtpd_sasl_authenticated_header = yes"
+postconf -e "smtpd_sender_restrictions = reject_non_fqdn_sender, reject_unknown_sender_domain, reject_unverified_sender"
 postconf -e "smtpd_relay_restrictions =  permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination"
 
 # Enable Postfix TLS
