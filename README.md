@@ -1,4 +1,4 @@
-# Docker MailServer - Postfix + Dovecot + MySQL
+# Docker MailServer - Postfix + Dovecot + MySQL + OpenDKIM + SPF
 Simple mail server with [Postfix](https://www.postfix.org) and [Dovecot](https://www.dovecot.org/) in docker, the server uses MySQL to manage all your email domains and users.
 
 ## Reuqire
@@ -21,6 +21,7 @@ sh -c ./build.sh
     ```
 3. Set your configuration
     * save your SSL certificates `.key` and `.crt` into `/path/to/certs` dir
+    * save your DKIM domain key file `mail.private` into `/path/to/key` dir
     * set yourt environment vars
 4. Docker run
     ```sh
